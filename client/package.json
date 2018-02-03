@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "node-sass-chokidar": "^0.0.3",
@@ -11,6 +12,7 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
   },
+  "homepage": "http://sel.github.io/react-apollo",
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
       "prettier --single-quote --write",
@@ -21,6 +23,8 @@
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "precommit": "lint-staged",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
