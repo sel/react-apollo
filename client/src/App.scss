@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(165, 165, 165);
+  font-weight: 400;
+  width: 20%;
+  text-align: left;
+}
