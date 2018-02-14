@@ -8,4 +8,4 @@ type Deployment {
 type Query {
    deployments: [Deployment]    # "[]" means this is a list of channels
 }
-`;
+`
