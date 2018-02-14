@@ -5,12 +5,17 @@ var { buildSchema } = require('graphql');
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
+  type Namespace {
+    id: ID!
+    name: String
+  }
   type Deployment {
     id: ID!
     name: String
   }
   type Query {
     deployments: [Deployment]
+    namespaces: [Namespace]
   }
 `);
 
@@ -21,8 +26,18 @@ class Deployment {
   }
 }
 
+class Namespace {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
 // The root provides a resolver function for each API endpoint
 var root = {
+  namespaces: () => {
+    return [new Namespace(1, 'default'), new Namespace(2, 'kube-system')];
+  },
   deployments: () => {
     return [
       new Deployment(1, 'nginx'),

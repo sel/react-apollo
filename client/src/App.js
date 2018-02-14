@@ -6,6 +6,7 @@ import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
+import NamespaceListWithData from './components/NamespaceList'
 import DeploymentListWithData from './components/DeploymentList'
 
 const client = new ApolloClient({
@@ -20,8 +21,11 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Kubernetes Deployments</h1>
+            <h1 className="App-title">Kubernetes Resources</h1>
           </header>
+          <h2>Namespaces</h2>
+          <NamespaceListWithData />
+          <h2>Deployments</h2>
           <DeploymentListWithData />
         </div>
       </ApolloProvider>
